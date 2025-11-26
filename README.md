@@ -3,18 +3,34 @@
 A production-quality fullstack web application for managing employees and tasks, built for the ProU Technology Internship Coding Challenge – Fullstack Track.
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Python](https://img.shields.io/badge/python-3.9+-blue.svg)
+![Python](https://img.shields.io/badge/python-3.13+-blue.svg)
 ![TypeScript](https://img.shields.io/badge/typescript-5.0+-blue.svg)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-009688.svg)
+![React](https://img.shields.io/badge/React-18.2.0-61dafb.svg)
+
+## 🚀 Live Demo
+
+**Frontend**: https://pro-u-full-stack-assignment.vercel.app  
+**Backend API**: https://prou-fullstack-assignment.onrender.com  
+**API Documentation**: https://prou-fullstack-assignment.onrender.com/docs
+
+### Demo Credentials
+- **Admin**: `admin@prothink.com` / `password123`
+- **Manager**: `manager@prothink.com` / `manager123`
+
+> **Note**: Backend may take 30-60 seconds to wake up on first request (Render free tier).
+
+---
 
 ## 📋 Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
+- [Live Demo](#-live-demo)
+- [Features](#-features)
+- [Tech Stack](#-tech-stack)
 - [Project Structure](#project-structure)
-- [Setup Instructions](#setup-instructions)
-- [API Documentation](#api-documentation)
-- [Screenshots](#screenshots)
+- [Quick Start](#-quick-start)
+- [API Documentation](#-api-documentation)
+- [Deployment](#-deployment)
 - [Design Decisions](#design-decisions)
 - [Future Improvements](#future-improvements)
 
@@ -24,11 +40,9 @@ A production-quality fullstack web application for managing employees and tasks,
 
 This fullstack application provides a comprehensive solution for HR and management teams to manage employees and tasks. It features a modern, responsive UI built with React and a robust REST API powered by FastAPI with SQLite database persistence.
 
-**Live Demo:** *[Add your deployment URL here]*
+**Deployed on**: Render (Backend) + Vercel (Frontend)
 
 ---
-
-## ✨ Features
 
 ### Core Features
 
@@ -99,10 +113,11 @@ This fullstack application provides a comprehensive solution for HR and manageme
 ### Backend
 - **Framework**: FastAPI 0.109.0
 - **Server**: Uvicorn (ASGI)
-- **ORM**: SQLAlchemy 2.0.25
-- **Validation**: Pydantic 2.5.3
+- **ORM**: SQLAlchemy 2.0.36
+- **Validation**: Pydantic 2.9.2
 - **Authentication**: PyJWT 2.8.0
 - **Database**: SQLite (file-based)
+- **Deployment**: Render
 
 ### Frontend
 - **Framework**: React 18.2.0
@@ -115,6 +130,7 @@ This fullstack application provides a comprehensive solution for HR and manageme
 - **Icons**: Lucide React 0.309.0
 - **Charts**: Recharts 2.10.4
 - **Notifications**: React Hot Toast 2.4.1
+- **Deployment**: Vercel
 
 ### Development Tools
 - **Linting**: ESLint with TypeScript plugins
@@ -444,6 +460,58 @@ Remove employee assignment from a task.
 - `401 Unauthorized`: Missing or invalid authentication
 - `404 Not Found`: Resource not found
 - `500 Internal Server Error`: Server error
+
+---
+
+## 🚀 Deployment
+
+This application is deployed and live at:
+
+- **Frontend**: https://pro-u-full-stack-assignment.vercel.app
+- **Backend API**: https://prou-fullstack-assignment.onrender.com
+- **API Docs**: https://prou-fullstack-assignment.onrender.com/docs
+
+### Deployment Architecture
+
+```
+┌─────────────────┐         ┌──────────────────┐
+│   Vercel        │         │     Render       │
+│   (Frontend)    │────────▶│   (Backend API)  │
+│   React + Vite  │  HTTPS  │   FastAPI        │
+└─────────────────┘         └──────────────────┘
+                                     │
+                                     ▼
+                            ┌──────────────────┐
+                            │   SQLite DB      │
+                            │   (File-based)   │
+                            └──────────────────┘
+```
+
+### Deployment Configuration
+
+#### Backend (Render)
+- **Service**: Web Service
+- **Runtime**: Python 3.13
+- **Build Command**: `pip install -r requirements.txt`
+- **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+- **Auto-deploy**: Enabled from GitHub main branch
+
+#### Frontend (Vercel)
+- **Framework**: Vite
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist`
+- **Environment Variable**: `VITE_API_BASE_URL=https://prou-fullstack-assignment.onrender.com/api`
+- **Auto-deploy**: Enabled from GitHub main branch
+
+### Deploy Your Own
+
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md).
+
+Quick deploy:
+1. Fork this repository
+2. Deploy backend to Render (free tier)
+3. Deploy frontend to Vercel (free tier)
+4. Update environment variables with your backend URL
 
 ---
 
