@@ -636,15 +636,6 @@ This project is created for the ProU Technology Internship Coding Challenge.
 
 ---
 
-## 👤 Author
-
-**[Your Name]**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Email: your.email@example.com
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-
----
-
 ## 🙏 Acknowledgments
 
 - ProU Technology for the internship opportunity
