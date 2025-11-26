@@ -37,6 +37,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://localhost:3000",
+        "https://pro-u-full-stack-assignment.vercel.app",
         "https://*.vercel.app",
         "https://*.netlify.app",
     ],
